@@ -1,12 +1,22 @@
 ---
-interface Props { src?: string; alt: string; hero?: boolean; label?: string; webp?: string; avif?: string; srcset?: string; width?: number; height?: number }
-const { src = '/images/hero/placeholder.svg', alt, hero = false, label, webp, avif, srcset, width = 1600, height = 1000 } = Astro.props;
+interface Props {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  hero?: boolean;
+  webp?: string;
+  avif?: string;
+  srcset?: string;
+  sizes: string;
+  position?: string;
+}
+const { src, alt, width, height, hero = false, webp, avif, srcset, sizes, position = '50% 50%' } = Astro.props;
 ---
 <figure class:list={['visual', { 'hero-visual': hero }]}>
   <picture>
-    {avif && <source type="image/avif" srcset={avif} sizes={hero ? '100vw' : '(min-width: 48rem) 50vw, 100vw'} />}
-    {webp && <source type="image/webp" srcset={webp} sizes={hero ? '100vw' : '(min-width: 48rem) 50vw, 100vw'} />}
-    <img src={src} srcset={srcset} sizes={hero ? '100vw' : '(min-width: 48rem) 50vw, 100vw'} alt={alt} width={width} height={height} loading={hero ? 'eager' : 'lazy'} fetchpriority={hero ? 'high' : 'auto'} decoding="async" />
+    {avif && <source type="image/avif" srcset={avif} sizes={sizes} />}
+    {webp && <source type="image/webp" srcset={webp} sizes={sizes} />}
+    <img src={src} srcset={srcset} sizes={sizes} alt={alt} width={width} height={height} style={`object-position: ${position}`} loading={hero ? 'eager' : 'lazy'} fetchpriority={hero ? 'high' : 'auto'} decoding="async" />
   </picture>
-  {label && <figcaption>{label}</figcaption>}
 </figure>

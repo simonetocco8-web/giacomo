@@ -1,0 +1,58 @@
+{
+  "hero": {
+    "original": "/images/hero/hero.jpg",
+    "src": "/images/hero/hero-1024.jpg",
+    "webp": "/images/hero/hero-480.webp 480w, /images/hero/hero-768.webp 768w, /images/hero/hero-1024.webp 1024w",
+    "srcset": "/images/hero/hero-480.jpg 480w, /images/hero/hero-768.jpg 768w, /images/hero/hero-1024.jpg 1024w",
+    "width": 1024,
+    "height": 576
+  },
+  "roomTimber": {
+    "original": "/images/rooms/room3.jpeg",
+    "src": "/images/rooms/room-timber-1200.jpg",
+    "webp": "/images/rooms/room-timber-480.webp 480w, /images/rooms/room-timber-768.webp 768w, /images/rooms/room-timber-1024.webp 1024w, /images/rooms/room-timber-1200.webp 1200w",
+    "srcset": "/images/rooms/room-timber-480.jpg 480w, /images/rooms/room-timber-768.jpg 768w, /images/rooms/room-timber-1024.jpg 1024w, /images/rooms/room-timber-1200.jpg 1200w",
+    "width": 1200,
+    "height": 900
+  },
+  "roomBrick": {
+    "original": "/images/rooms/room2.jpeg",
+    "src": "/images/rooms/room-brick-1098.jpg",
+    "webp": "/images/rooms/room-brick-480.webp 480w, /images/rooms/room-brick-768.webp 768w, /images/rooms/room-brick-1024.webp 1024w, /images/rooms/room-brick-1098.webp 1098w",
+    "srcset": "/images/rooms/room-brick-480.jpg 480w, /images/rooms/room-brick-768.jpg 768w, /images/rooms/room-brick-1024.jpg 1024w, /images/rooms/room-brick-1098.jpg 1098w",
+    "width": 1098,
+    "height": 897
+  },
+  "galleryGarden": {
+    "original": "/images/gallery/gallery2.jpeg",
+    "src": "/images/gallery/gallery-garden-1024.jpg",
+    "webp": "/images/gallery/gallery-garden-480.webp 480w, /images/gallery/gallery-garden-768.webp 768w, /images/gallery/gallery-garden-1024.webp 1024w",
+    "srcset": "/images/gallery/gallery-garden-480.jpg 480w, /images/gallery/gallery-garden-768.jpg 768w, /images/gallery/gallery-garden-1024.jpg 1024w",
+    "width": 1024,
+    "height": 667
+  },
+  "galleryLinen": {
+    "original": "/images/gallery/gallery4.jpeg",
+    "src": "/images/gallery/gallery-linen-960.jpg",
+    "webp": "/images/gallery/gallery-linen-480.webp 480w, /images/gallery/gallery-linen-768.webp 768w, /images/gallery/gallery-linen-960.webp 960w",
+    "srcset": "/images/gallery/gallery-linen-480.jpg 480w, /images/gallery/gallery-linen-768.jpg 768w, /images/gallery/gallery-linen-960.jpg 960w",
+    "width": 960,
+    "height": 1496
+  },
+  "galleryTerrace": {
+    "original": "/images/gallery/gallery3.jpeg",
+    "src": "/images/gallery/gallery-terrace-1024.jpg",
+    "webp": "/images/gallery/gallery-terrace-480.webp 480w, /images/gallery/gallery-terrace-768.webp 768w, /images/gallery/gallery-terrace-1024.webp 1024w",
+    "srcset": "/images/gallery/gallery-terrace-480.jpg 480w, /images/gallery/gallery-terrace-768.jpg 768w, /images/gallery/gallery-terrace-1024.jpg 1024w",
+    "width": 1024,
+    "height": 780
+  },
+  "destination": {
+    "original": "/images/destination/destination1.jpg",
+    "src": "/images/destination/destination-1024.jpg",
+    "webp": "/images/destination/destination-480.webp 480w, /images/destination/destination-768.webp 768w, /images/destination/destination-1024.webp 1024w",
+    "srcset": "/images/destination/destination-480.jpg 480w, /images/destination/destination-768.jpg 768w, /images/destination/destination-1024.jpg 1024w",
+    "width": 1024,
+    "height": 767
+  }
+}
