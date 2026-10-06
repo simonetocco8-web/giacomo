@@ -1,0 +1,8 @@
+---
+// Static entry page: usable without client-side JavaScript or host redirect support.
+import { locales, languageNames } from '../data/site';
+import '../styles/global.css';
+---
+<!doctype html>
+<html lang="it"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>Villa Maria Elena | Lingua · Language · Sprache</title><meta name="robots" content="noindex, follow" /><link rel="icon" href="/favicon.svg" /></head>
+<body><main class="shell language-entry"><h1>Villa Maria Elena</h1><p>Lingua · Language · Sprache</p><nav aria-label="Lingua · Language · Sprache"><ul>{locales.map((locale) => <li><a class="button" href={`/${locale}/`} lang={locale} hreflang={locale}>{languageNames[locale]}</a></li>)}</ul></nav></main></body></html>

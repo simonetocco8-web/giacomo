@@ -1,0 +1,10 @@
+---
+import { contactActions, content, ui, type Locale } from '../data/site';
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+---
+<aside class="mobile-actions" aria-label={content[locale].book}>
+ {contactActions.whatsapp ? <a href={contactActions.whatsapp}>WhatsApp</a> : <button disabled title={ui[locale].unavailable}>WhatsApp<span>{ui[locale].unavailable}</span></button>}
+ {contactActions.quote ? <a href={contactActions.quote}>{ui[locale].quote}</a> : <button disabled title={ui[locale].unavailable}>{ui[locale].quote}<span>{ui[locale].unavailable}</span></button>}
+ <a class="mobile-book" href={contactActions.booking}>{content[locale].book}</a>
+</aside>
