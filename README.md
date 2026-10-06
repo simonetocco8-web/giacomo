@@ -75,9 +75,9 @@ Le homepage statiche sono disponibili su `/it/`, `/en/` e `/de/`; `/` contiene i
 
 ### Dominio e SEO
 
-Impostare `SITE_URL` con l'origine HTTPS ufficiale verificata nell'ambiente di build o in `.env` (vedere `.env.example`). Non è stato ipotizzato un dominio. Con `SITE_URL` sono generati canonical, alternate hreflang, sitemap e il relativo riferimento in `robots.txt`. Senza dominio, il build rimane funzionante ma le pagine sono `noindex` e `robots.txt` impedisce la scansione. `robots.txt` è generato staticamente da `src/pages/robots.txt.ts`.
+Il dominio ufficiale predefinito è `https://villamariaelena.it`, configurato in `astro.config.mjs`. Non serve impostare variabili per il build di produzione: canonical, alternate hreflang, Open Graph, sitemap e riferimento in `robots.txt` usano già il dominio ufficiale. Le pagine sono indicizzabili. `SITE_URL` può sovrascrivere l’origine HTTPS per un altro ambiente (vedere `.env.example`); un override non disabilita l’indicizzazione. `robots.txt` è generato staticamente da `src/pages/robots.txt.ts`.
 
-Prima della pubblicazione sostituire i contenuti placeholder con dati verificati, aggiungere fotografie locali ottimizzate e configurare il dominio. L'immagine Open Graph e i dati strutturati della struttura saranno aggiunti solo quando disponibili asset e dati verificati. Le CTA attuali aprono il Linktree documentato, senza ipotizzare telefono, email, indirizzo, tariffe o servizi. Le recensioni non sono inventate.
+Prima della pubblicazione sostituire i contenuti placeholder con dati verificati, aggiungere fotografie locali ottimizzate. L'immagine Open Graph e i dati strutturati della struttura saranno aggiunti solo quando disponibili asset e dati verificati. Le CTA attuali aprono il Linktree documentato, senza ipotizzare telefono, email, indirizzo, tariffe o servizi. Le recensioni non sono inventate.
 
 ### Immagini
 
@@ -91,4 +91,4 @@ La hero occupa almeno un viewport e usa un'illustrazione SVG locale esplicitamen
 
 `src/components/MobileActions.astro` presenta WhatsApp, preventivo e prenotazione in una barra mobile; i primi due sono disabilitati e segnalati in preparazione. Per attivarli, inserire solo URL verificati in `contactActions` dentro `src/data/site.ts`. Non sono stati ipotizzati recapiti o sistemi di prenotazione.
 
-Per completare servono fotografie autorizzate di struttura, camere e destinazione; descrizioni e servizi confermati; indirizzo e posizione sulla mappa; contatti WhatsApp e preventivi; destinazione della prenotazione; recensioni autentiche con fonte e autorizzazioni; dominio ufficiale per `SITE_URL` e immagine Open Graph.
+Per completare servono fotografie autorizzate di struttura, camere e destinazione; descrizioni e servizi confermati; indirizzo e posizione sulla mappa; contatti WhatsApp e preventivi; destinazione della prenotazione; recensioni autentiche con fonte e autorizzazioni; immagine Open Graph.

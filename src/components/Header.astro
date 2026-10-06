@@ -13,6 +13,6 @@ const labels = [ui[locale].home, t.sections[1], t.sections[3], t.sections[2], t.
   <details class="navigation"><summary>{t.menu}</summary>
    <nav aria-label={t.menu}><ul>{navigation.map((id,i) => <li><a href={`#${id}`}>{labels[i]}</a></li>)}</ul></nav>
   </details>
-  <nav class="languages" aria-label="Lingua / Language / Sprache">{locales.map(lang => <a href={`/${lang}/`} lang={lang} hreflang={lang} aria-label={languageNames[lang]} aria-current={lang === locale ? 'page' : undefined}>{lang.toUpperCase()}</a>)}</nav>
+  <nav class="languages" aria-label="Lingua / Language / Sprache">{locales.map(lang => <a href={`/${lang}/`} lang={lang} hreflang={lang} aria-label={`${lang.toUpperCase()} — ${languageNames[lang]}`} aria-current={lang === locale ? 'page' : undefined}>{lang.toUpperCase()}</a>)}</nav>
  </div>
 </header>
