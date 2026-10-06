@@ -1,6 +1,17 @@
 ---
-import { site, content, type Locale } from '../data/site';
+import { site, content, ui, type Locale } from '../data/site';
 interface Props { locale: Locale }
 const { locale } = Astro.props;
 ---
-<footer class="shell footer"><p>{site.name} · {site.location}</p><p>{content[locale].footer}</p><a href={site.contactUrl}>{content[locale].book}</a></footer>
+<footer class="shell footer">
+ <p>{site.name} · {site.location}</p>
+ {site.address && <p>{site.address}</p>}
+ <nav class="footer-links" aria-label={content[locale].sections[6]}>
+  <a href={site.bookingUrl}>{content[locale].book}</a>
+  <a href={site.quoteUrl}>{ui[locale].quote}</a>
+  <a href={site.mapsUrl}>{ui[locale].maps}</a>
+  <a href={site.facebookUrl}>Facebook</a>
+  {site.email && <a href={`mailto:${site.email}`}>{site.email}</a>}
+  {site.phone && <a href={`tel:${site.phone.replace(/[^+0-9]/g, '')}`}>{site.phone}</a>}
+ </nav>
+</footer>

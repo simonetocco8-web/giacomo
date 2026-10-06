@@ -1,18 +1,18 @@
 ---
-import { site, content, locales, languageNames, navigation, ui, type Locale } from '../data/site';
+import { site, content, locales, languageNames, navigation, ui, localePath, type Locale } from '../data/site';
 interface Props { locale: Locale }
 const { locale } = Astro.props;
 const t = content[locale];
-const labels = [ui[locale].home, t.sections[1], t.sections[3], t.sections[2], t.sections[4], t.sections[6]];
+const labels: Record<string, string> = { hero: ui[locale].home, rooms: t.sections[1], gallery: t.sections[3], services: t.sections[2], destination: t.sections[4], location: t.sections[6] };
 ---
 <header class="site-header">
  <div class="shell header-row">
-  <a class="brand" href={`/${locale}/`}>Villa Maria Elena<span>Capo Vaticano · Calabria</span></a>
-  <nav class="desktop-nav" aria-label={t.menu}><ul>{navigation.map((id,i) => <li><a href={`#${id}`}>{labels[i]}</a></li>)}</ul></nav>
-  <a class="button header-book" href={site.contactUrl}>{t.book}</a>
+  <a class="brand" href={localePath(locale)}>{site.name}<span>{site.destination} · {site.region}</span></a>
+  <nav class="desktop-nav" aria-label={t.menu}><ul>{navigation.map((id) => <li><a href={`#${id}`}>{labels[id]}</a></li>)}</ul></nav>
+  <a class="button header-book" href={site.bookingUrl}>{t.book}</a>
   <details class="navigation"><summary>{t.menu}</summary>
-   <nav aria-label={t.menu}><ul>{navigation.map((id,i) => <li><a href={`#${id}`}>{labels[i]}</a></li>)}</ul></nav>
+   <nav aria-label={t.menu}><ul>{navigation.map((id) => <li><a href={`#${id}`}>{labels[id]}</a></li>)}</ul></nav>
   </details>
-  <nav class="languages" aria-label="Lingua / Language / Sprache">{locales.map(lang => <a href={`/${lang}/`} lang={lang} hreflang={lang} aria-label={`${lang.toUpperCase()} — ${languageNames[lang]}`} aria-current={lang === locale ? 'page' : undefined}>{lang.toUpperCase()}</a>)}</nav>
+  <nav class="languages" aria-label="Lingua / Language / Sprache">{locales.map(lang => <a href={localePath(lang)} lang={lang} hreflang={lang} aria-label={`${lang.toUpperCase()} — ${languageNames[lang]}`} aria-current={lang === locale ? 'page' : undefined}>{lang.toUpperCase()}</a>)}</nav>
  </div>
 </header>
