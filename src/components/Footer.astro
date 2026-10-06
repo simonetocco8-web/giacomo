@@ -1,0 +1,6 @@
+---
+import { site, content, type Locale } from '../data/site';
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+---
+<footer class="shell footer"><p>{site.name} · {site.location}</p><p>{content[locale].footer}</p><a href={site.contactUrl}>{content[locale].book}</a></footer>
