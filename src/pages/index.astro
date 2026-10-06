@@ -1,8 +1,12 @@
 ---
 // Static entry page: usable without client-side JavaScript or host redirect support.
-import { locales, languageNames } from '../data/site';
+import { locales, languageNames, site } from '../data/site';
 import '../styles/global.css';
 ---
 <!doctype html>
-<html lang="it"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>Villa Maria Elena | Lingua · Language · Sprache</title><meta name="robots" content="noindex, follow" /><link rel="icon" href="/favicon.svg" /></head>
+<html lang="it"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>Villa Maria Elena | Lingua · Language · Sprache</title><meta name="description" content="Villa Maria Elena a Capo Vaticano, Costa degli Dei. Scegli la lingua: italiano, inglese o tedesco." /><meta name="robots" content="index, follow" />
+<link rel="canonical" href={new URL('/', Astro.site).href} />
+{locales.map(locale => <link rel="alternate" hreflang={locale} href={new URL(`/${locale}/`, Astro.site).href} />)}
+<link rel="alternate" hreflang="x-default" href={new URL('/it/', Astro.site).href} />
+<meta property="og:type" content="website" /><meta property="og:site_name" content={site.name} /><meta property="og:title" content="Villa Maria Elena | Capo Vaticano" /><meta property="og:description" content="Villa Maria Elena a Capo Vaticano, Costa degli Dei. Italiano, English, Deutsch." /><meta property="og:url" content={new URL('/', Astro.site).href} /><link rel="icon" href="/favicon.svg" /></head>
 <body><main class="shell language-entry"><h1>Villa Maria Elena</h1><p>Lingua · Language · Sprache</p><nav aria-label="Lingua · Language · Sprache"><ul>{locales.map((locale) => <li><a class="button" href={`/${locale}/`} lang={locale} hreflang={locale}>{languageNames[locale]}</a></li>)}</ul></nav></main></body></html>

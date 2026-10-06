@@ -48,7 +48,7 @@ p { margin-top: 0; }
 
 /* Homepage: full-bleed visual, airy editorial sections and discreet mobile actions. */
 html { scroll-padding-bottom: 7rem; }
-body { padding-bottom: 5.5rem; }
+body { padding-bottom: calc(5.5rem + env(safe-area-inset-bottom)); }
 .desktop-nav { display: none; }
 .languages { margin-left: auto; border: 0; gap: .9rem; }
 .languages a { padding-block: .6rem; min-height: 44px; }
@@ -103,3 +103,17 @@ body { padding-bottom: 5.5rem; }
  .header-book { margin-left: 0; }
  .languages { margin-left: 0; }
 }
+
+/* Audit corrections: compact header and accessible touch/focus targets. */
+@media (max-width: 79.999rem) {
+ .header-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: .5rem; padding-block: 1rem; }
+ .brand { font-size: clamp(.95rem, 3vw, 1.2rem); }
+ .brand span { font-size: .65rem; letter-spacing: .1em; }
+ .header-book { margin-left: 0; }
+ .navigation { width: auto; }
+ .languages { margin: 0; gap: 0; flex-wrap: nowrap; }
+}
+.languages a { min-width: 44px; display: inline-flex; align-items: center; justify-content: center; }
+.mobile-actions a, .mobile-actions button { font-size: .8125rem; }
+.mobile-actions span { font-size: .6875rem; }
+.hero :focus-visible, .booking :focus-visible { outline-color: #fff; }
