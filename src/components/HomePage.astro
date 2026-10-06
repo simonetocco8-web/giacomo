@@ -1,0 +1,23 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import ResponsiveImage from './ResponsiveImage.astro';
+import { content, site, ui, services, reviews, type Locale } from '../data/site';
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const t = content[locale]; const u = ui[locale];
+const [firstName, ...remainingName] = site.name.split(' ');
+---
+<MainLayout locale={locale}>
+ <section id="hero" class="hero" aria-labelledby="hero-title">
+  <ResponsiveImage hero alt="" />
+  <div class="shell hero-copy"><p class="eyebrow">{site.location}</p><h1 id="hero-title">{firstName}<br/>{remainingName.join(' ')}</h1><p class="lead">{t.intro}</p><a class="button button-light" href={site.bookingUrl}>{t.book}</a><a class="hero-explore" href="#presentation">{u.explore} ↓</a></div>
+ </section>
+ <section id="presentation" class="section shell intro" aria-labelledby="presentation-title"><p class="eyebrow">{site.name}</p><h2 id="presentation-title">{t.sections[0]}</h2><p class="lead">{t.intro}</p></section>
+ <section id="rooms" class="section section-tinted" aria-labelledby="rooms-title"><div class="shell"><div class="section-heading"><div><p class="eyebrow">{site.name}</p><h2 id="rooms-title">{t.sections[1]}</h2></div><a class="text-link" href={site.quoteUrl}>{u.quote} ↗</a></div><div class="room-grid">{[1,2].map(() => <article class="room-card"><ResponsiveImage alt="" /></article>)}</div></div></section>
+ {services.length > 0 && <section id="services" class="section shell" aria-labelledby="services-title"><p class="eyebrow">{site.name}</p><h2 id="services-title">{t.sections[2]}</h2><div class="service-grid">{services.map(service => <div class="service-slot"><p>{service.label[locale]}</p></div>)}</div></section>}
+ <section id="gallery" class="section section-tinted" aria-labelledby="gallery-title"><div class="shell"><p class="eyebrow">{site.name}</p><h2 id="gallery-title">{t.sections[3]}</h2><div class="gallery-grid">{[1,2,3].map(() => <ResponsiveImage alt="" />)}</div></div></section>
+ <section id="destination" class="section shell destination" aria-labelledby="destination-title"><ResponsiveImage alt="" /><div><p class="eyebrow">{site.region}</p><h2 id="destination-title">{site.destination}<br/><span class="muted">{site.coast}</span></h2><p>{t.intro}</p></div></section>
+ {reviews.length > 0 && <section id="reviews" class="section section-tinted reviews" aria-labelledby="reviews-title"><div class="shell"><h2 id="reviews-title">{t.sections[5]}</h2>{reviews.map(review => <figure><blockquote><p>{review.text[locale]}</p></blockquote><figcaption><a href={review.sourceUrl}>{review.author}</a></figcaption></figure>)}</div></section>}
+ <section id="location" class="section shell" aria-labelledby="location-title"><p class="eyebrow">{site.destination} · {site.region}</p><h2 id="location-title">{t.sections[6]}</h2><p>{site.location}</p>{site.address && <p>{site.address}</p>}<a class="text-link" href={site.mapsUrl}>{u.maps} ↗</a></section>
+ <section id="booking" class="section booking" aria-labelledby="booking-title"><div class="shell"><p class="eyebrow">{site.name}</p><h2 id="booking-title">{t.sections[7]}</h2><div class="booking-actions"><a class="button button-light" href={site.bookingUrl}>{t.book} ↗</a><a class="button button-light" href={site.quoteUrl}>{u.quote} ↗</a></div></div></section>
+</MainLayout>

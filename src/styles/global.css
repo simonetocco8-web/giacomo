@@ -117,3 +117,7 @@ body { padding-bottom: calc(5.5rem + env(safe-area-inset-bottom)); }
 .mobile-actions a, .mobile-actions button { font-size: .8125rem; }
 .mobile-actions span { font-size: .6875rem; }
 .hero :focus-visible, .booking :focus-visible { outline-color: #fff; }
+
+.footer-links, .booking-actions { display: flex; flex-wrap: wrap; gap: 1rem; }
+.footer-links a { min-height: 44px; display: inline-flex; align-items: center; }
+.booking-actions { justify-content: center; margin-top: 1.5rem; }
