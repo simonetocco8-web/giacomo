@@ -26,3 +26,9 @@ WhatsApp resta disabilitato; preventivo e prenotazione usano gli URL forniti dal
 - [Desktop](./photos-home-1440.png)
 - [Smartphone](./photos-home-375.png)
 - [Foto selezionate e verifiche](../reviews/photography.md)
+
+## Homepage con contenuti verificati
+
+- [Desktop](./content-home-1440.png)
+- [Smartphone](./content-home-375.png)
+- [Contenuti, fonte e verifiche](../reviews/verified-content.md)

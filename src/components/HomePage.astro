@@ -2,24 +2,99 @@
 import MainLayout from '../layouts/MainLayout.astro';
 import ResponsiveImage from './ResponsiveImage.astro';
 import { homepageImages } from '../data/images';
-import { content, site, ui, services, reviews, type Locale } from '../data/site';
+import { content, site, ui, type Locale } from '../data/site';
+import { rooms, serviceGroups, amenityLabel } from '../data/hospitality';
+import { homepageCopy } from '../data/homepage-copy';
 interface Props { locale: Locale }
 const { locale } = Astro.props;
-const t = content[locale]; const u = ui[locale];
+const t = content[locale];
+const u = ui[locale];
+const c = homepageCopy[locale];
 const images = homepageImages(locale);
-const [firstName, ...remainingName] = site.name.split(' ');
+const [firstName, ...remainingName] = site.shortName.split(' ');
 ---
 <MainLayout locale={locale}>
- <section id="hero" class="hero" aria-labelledby="hero-title">
-  <ResponsiveImage hero {...images.hero} />
-  <div class="shell hero-copy"><p class="eyebrow">{site.location}</p><h1 id="hero-title">{firstName}<br/>{remainingName.join(' ')}</h1><p class="lead">{t.intro}</p><a class="button button-light" href={site.bookingUrl}>{t.book}</a><a class="hero-explore" href="#presentation">{u.explore} ↓</a></div>
- </section>
- <section id="presentation" class="section shell intro" aria-labelledby="presentation-title"><p class="eyebrow">{site.name}</p><h2 id="presentation-title">{t.sections[0]}</h2><p class="lead">{t.intro}</p></section>
- <section id="rooms" class="section section-tinted" aria-labelledby="rooms-title"><div class="shell"><div class="section-heading"><div><p class="eyebrow">{site.name}</p><h2 id="rooms-title">{t.sections[1]}</h2></div><a class="text-link" href={site.quoteUrl}>{u.quote} ↗</a></div><div class="room-grid">{images.rooms.map(image => <article class="room-card"><ResponsiveImage {...image} /></article>)}</div></div></section>
- {services.length > 0 && <section id="services" class="section shell" aria-labelledby="services-title"><p class="eyebrow">{site.name}</p><h2 id="services-title">{t.sections[2]}</h2><div class="service-grid">{services.map(service => <div class="service-slot"><p>{service.label[locale]}</p></div>)}</div></section>}
- <section id="gallery" class="section section-tinted" aria-labelledby="gallery-title"><div class="shell"><p class="eyebrow">{site.name}</p><h2 id="gallery-title">{t.sections[3]}</h2><div class="gallery-grid">{images.gallery.map(image => <ResponsiveImage {...image} />)}</div></div></section>
- <section id="destination" class="section shell destination" aria-labelledby="destination-title"><ResponsiveImage {...images.destination} /><div><p class="eyebrow">{site.region}</p><h2 id="destination-title">{site.destination}<br/><span class="muted">{site.coast}</span></h2><p>{t.intro}</p></div></section>
- {reviews.length > 0 && <section id="reviews" class="section section-tinted reviews" aria-labelledby="reviews-title"><div class="shell"><h2 id="reviews-title">{t.sections[5]}</h2>{reviews.map(review => <figure><blockquote><p>{review.text[locale]}</p></blockquote><figcaption><a href={review.sourceUrl}>{review.author}</a></figcaption></figure>)}</div></section>}
- <section id="location" class="section shell" aria-labelledby="location-title"><p class="eyebrow">{site.destination} · {site.region}</p><h2 id="location-title">{t.sections[6]}</h2><p>{site.location}</p>{site.address && <p>{site.address}</p>}<a class="text-link" href={site.mapsUrl}>{u.maps} ↗</a></section>
- <section id="booking" class="section booking" aria-labelledby="booking-title"><div class="shell"><p class="eyebrow">{site.name}</p><h2 id="booking-title">{t.sections[7]}</h2><div class="booking-actions"><a class="button button-light" href={site.bookingUrl}>{t.book} ↗</a><a class="button button-light" href={site.quoteUrl}>{u.quote} ↗</a></div></div></section>
+  <section id="hero" class="hero" aria-labelledby="hero-title">
+    <ResponsiveImage hero {...images.hero} />
+    <div class="shell hero-copy">
+      <p class="eyebrow">{site.location}</p>
+      <h1 id="hero-title">{firstName}<br />{remainingName.join(' ')}</h1>
+      <p class="lead">{t.heroIntro}</p>
+      <a class="button button-light" href={site.bookingUrl}>{t.book}</a>
+      <a class="hero-explore" href="#presentation">{u.explore} ↓</a>
+    </div>
+  </section>
+  <section id="presentation" class="section shell intro" aria-labelledby="presentation-title">
+    <p class="eyebrow">{site.name}</p>
+    <h2 id="presentation-title">{c.presentationTitle}</h2>
+    {c.presentation.map((paragraph, i) => <p class:list={{ lead: i === 0 }}>{paragraph}</p>)}
+  </section>
+  <section id="rooms" class="section section-tinted" aria-labelledby="rooms-title">
+    <div class="shell">
+      <div class="section-heading">
+        <div><p class="eyebrow">{site.name}</p><h2 id="rooms-title">{t.sections[1]}</h2></div>
+        <a class="text-link" href={site.quoteUrl}>{u.quote} ↗</a>
+      </div>
+      <p class="section-copy">{c.roomsIntro}</p>
+      <div class="room-grid">
+        {images.rooms.map(image => <div class="room-card"><ResponsiveImage {...image} /></div>)}
+      </div>
+      <!-- General room photographs: no unverified mapping to Booking categories. -->
+      <div class="room-details">
+        {rooms.map(room => <article class="room-description">
+          <h3 lang="it">{room.name}</h3>
+          <p class="room-meta">{c.roomMeta(room)}</p>
+          <ul>{room.amenities.map(id => <li>{amenityLabel(id, locale)}</li>)}</ul>
+        </article>)}
+      </div>
+    </div>
+  </section>
+  <section id="services" class="section shell" aria-labelledby="services-title">
+    <p class="eyebrow">{site.name}</p>
+    <h2 id="services-title">{t.sections[2]}</h2>
+    <p class="section-copy">{c.servicesIntro}</p>
+    <div class="service-grid">
+      {serviceGroups.map(group => <article class="service-slot">
+        <h3>{c.serviceTitles[group.id]}</h3>
+        <ul>{group.amenities.map(id => <li>{amenityLabel(id, locale)}</li>)}</ul>
+        {group.id === 'arrival' && <p class="service-note">{c.parking}</p>}
+        {group.id === 'activities' && <p class="service-note">{c.activityNote}</p>}
+      </article>)}
+    </div>
+  </section>
+  <section id="gallery" class="section section-tinted" aria-labelledby="gallery-title">
+    <div class="shell">
+      <p class="eyebrow">{site.name}</p><h2 id="gallery-title">{t.sections[3]}</h2>
+      <p class="section-copy">{c.galleryIntro}</p>
+      <div class="gallery-grid">{images.gallery.map(image => <ResponsiveImage {...image} />)}</div>
+    </div>
+  </section>
+  <section id="destination" class="section shell destination" aria-labelledby="destination-title">
+    <ResponsiveImage {...images.destination} />
+    <div><p class="eyebrow">{site.region}</p><h2 id="destination-title">{site.destination}<br /><span class="muted">{site.coast}</span></h2><p>{c.destination}</p></div>
+  </section>
+  <section id="reviews" class="section section-tinted reviews" aria-labelledby="reviews-title">
+    <div class="shell"><p class="eyebrow">{site.shortName}</p><h2 id="reviews-title">{c.reviewsTitle}</h2><p class="section-copy">{c.reviews}</p></div>
+  </section>
+  <section id="location" class="section shell" aria-labelledby="location-title">
+    <p class="eyebrow">{site.destination} · {site.region}</p><h2 id="location-title">{t.sections[6]}</h2>
+    <p class="section-copy">{c.location}</p>
+    {site.address && <p>{site.address}</p>}
+    <a class="text-link" href={site.mapsUrl}>{u.maps} ↗</a>
+    <div class="practical-info">
+      <h3>{c.practicalTitle}</h3>
+      <ul>{[c.checkIn, c.checkOut, c.children, c.pets, c.languages].filter(Boolean).map(item => <li>{item}</li>)}</ul>
+    </div>
+  </section>
+  <section id="booking" class="section booking" aria-labelledby="booking-title">
+    <div class="shell">
+      <p class="eyebrow">{site.name}</p><h2 id="booking-title">{c.bookingTitle}</h2><p class="section-copy">{c.booking}</p>
+      <div class="booking-actions">
+        <a class="button button-light" href={site.bookingUrl}>{t.book} ↗</a>
+        <a class="button button-light" href={site.quoteUrl}>{u.quote} ↗</a>
+        {site.whatsappUrl && <a class="button button-light" href={site.whatsappUrl}>WhatsApp</a>}
+        {site.phone && <a class="button button-light" href={site.phoneUrl}>{c.call}</a>}
+      </div>
+    </div>
+  </section>
 </MainLayout>
