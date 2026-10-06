@@ -20,3 +20,9 @@ Le anteprime storiche qui sopra rappresentano il prototipo precedente. La versio
 - [Smartphone](./production-home-375.png)
 
 WhatsApp resta disabilitato; preventivo e prenotazione usano gli URL forniti dal proprietario. Servizi e recensioni non confermati sono nascosti.
+
+## Homepage con fotografie reali
+
+- [Desktop](./photos-home-1440.png)
+- [Smartphone](./photos-home-375.png)
+- [Foto selezionate e verifiche](../reviews/photography.md)
