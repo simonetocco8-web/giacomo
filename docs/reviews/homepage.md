@@ -2,7 +2,7 @@
 
 ## Ambito e limiti
 
-Revisione del build statico locale del codice presente su `main`, dopo la prima PR della homepage. Il dominio di produzione è `https://villamariaelena.it`. L'accesso HTTPS pubblico dal runner è bloccato dal proxy con `CONNECT 403 Forbidden`: questo errore non proviene dal sito e non dimostra un guasto della produzione. Non sono stati verificati contenuti live, redirect, header HTTP, caching CDN, compressione o prestazioni reali della rete pubblica. Le modifiche richiedono merge e pubblicazione dal normale flusso del progetto; questa attività non esegue deploy.
+Revisione del build statico locale del codice presente su `main`, dopo la prima PR della homepage. Il dominio di produzione è `https://villamariaelena.it`. Il primo accesso HTTPS era bloccato dal proxy (`CONNECT 403 Forbidden`). Dopo l'aggiunta del dominio ai permessi di rete, il tunnel HTTPS è stato stabilito: HEAD e GET sulla radice hanno restituito HTTP 403 con una pagina 'Forbidden'; GET su `/it/`, `/robots.txt` e `/sitemap-index.xml` ha restituito HTTP 404. Non è stato quindi possibile ispezionare la homepage live. Questi risultati sono osservati dal runner e non identificano da soli la causa: verificare directory pubblicata, file statici e regole di accesso dell'hosting. Caching CDN, compressione, comportamento visuale e performance reali della rete pubblica restano non verificati. Le modifiche richiedono merge e pubblicazione dal normale flusso del progetto; questa attività non esegue deploy.
 
 ## Criticità corrette
 
@@ -36,7 +36,7 @@ Lighthouse mobile locale, una singola esecuzione con il profilo simulato predefi
 - Fotografie, descrizioni camere, servizi, recensioni e mappa sono ancora placeholder. La gerarchia è valutabile, ma l'efficacia commerciale e il ritaglio fotografico finale richiedono gli asset reali.
 - Open Graph ha URL, titolo e descrizione corretti; manca una fotografia social reale. Non è stata usata un'immagine fittizia della struttura.
 - `/` resta il selettore lingua già esistente: introduce un passaggio prima della homepage italiana. L'eventuale scelta di mostrare direttamente l'italiano sulla radice va valutata separatamente.
-- Confermare in produzione l'assenza di X-Robots-Tag restrittivi, la disponibilità della sitemap, i redirect e il dominio canonical dopo il merge/deploy.
+- Verificare che la directory pubblicata contenga il contenuto di `dist/` (incluso `index.html` e le cartelle lingua), e risolvere le risposte 403/404 osservate. Confermare poi in produzione l'assenza di X-Robots-Tag restrittivi, la disponibilità della sitemap, i redirect e il dominio canonical dopo il merge/deploy.
 
 ## Anteprime del build revisionato
 
