@@ -1,0 +1,18 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import { galleryPhotos, galleryContent } from '../data/gallery';
+import type { Locale } from '../data/site';
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const t = galleryContent[locale];
+---
+<MainLayout locale={locale} page="gallery">
+  <div class="section shell dedicated-gallery">
+    <h1>{t.heading}</h1><p class="lead">{t.intro}</p>
+    <div class="photo-collection">
+      {galleryPhotos.map((photo, index) => <a class="gallery-photo" href={photo.src} aria-label={`${t.photo(photo.number)} — ${t.open(photo.number)}`}>
+        <img src={photo.src} alt={t.photo(photo.number)} loading={index < 3 ? 'eager' : 'lazy'} decoding="async" />
+      </a>)}
+    </div>
+  </div>
+</MainLayout>

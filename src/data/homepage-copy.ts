@@ -6,14 +6,16 @@ const parking = (locale: Locale) => new Intl.NumberFormat(locale, { style: 'curr
 
 export const homepageCopy = {
   it: {
-    presentationTitle: 'Il mare, a pochi passi dalla tua camera',
+    presentationTitle: "Villa Maria Elena – Il fascino autentico di Capo Vaticano",
     presentation: [
-      'In Località Tono, a Capo Vaticano, Villa Maria Elena Charme Rooms sul mare accoglie chi desidera vivere la Calabria con calma. La posizione fronte spiaggia e la spiaggia privata lasciano spazio a giornate scandite dal mare, tra un momento in giardino e il tempo per sé.',
-      `Tono Beach è a circa ${n(distances.beachMetres, 'it')} metri: il mare è parte del soggiorno, non una destinazione da raggiungere in auto. E quando nasce il desiderio di esplorare, Tropea si trova a circa ${n(distances.tropeaKm, 'it')} km.`,
-    ],
+      "Nel cuore di Capo Vaticano, a pochi passi dalle acque cristalline della Spiaggia del Tono, Villa Maria Elena è un piccolo angolo di tranquillità dove storia, natura e comfort si incontrano.",
+      "Un'antica dimora ricca di storia, sapientemente valorizzata nel rispetto delle sue origini, accoglie oggi gli ospiti in sole cinque camere, dove il fascino della pietra, le travi a vista e i materiali naturali si fondono con un'eleganza semplice e contemporanea.",
+      "Immersa nel verde di un giardino curato, la villa offre un'atmosfera intima e rilassante, ideale per chi desidera riscoprire il piacere di una vacanza senza fretta. Un accesso privato conduce direttamente alla spiaggia, raggiungibile in meno di un minuto a piedi, tra sabbia chiara, mare turchese e suggestivi tramonti sullo Stromboli.",
+      "Villa Maria Elena è più di un soggiorno: è un'esperienza di autentica ospitalità mediterranea, dove ogni dettaglio racconta una storia e ogni momento invita a sentirsi a casa."
+],
     roomsIntro: 'Tre tipologie di camera, con bagno privato, aria condizionata e Wi-Fi. Scegli gli spazi più adatti al tuo soggiorno, da una camera con patio a una soluzione con zona salotto.',
     roomMeta: (room: Room) => `Circa ${room.areaM2} m² · fino a ${room.maxGuests} ospiti`,
-    servicesIntro: 'Dalla spiaggia privata alla colazione italiana, piccoli punti di riferimento per vivere il soggiorno con semplicità.',
+    servicesIntro: 'Dall’accesso privato alla spiaggia alla colazione italiana, piccoli punti di riferimento per vivere il soggiorno con semplicità.',
     serviceTitles: { sea: 'Il mare', comfort: 'Spazi e comfort', care: 'Ogni giorno', arrival: 'Arrivare e muoversi', accessibility: 'Accessibilità', activities: 'Tra mare e natura' },
     parking: `Il parcheggio privato in struttura è disponibile a ${parking('it')} al giorno${stay.parkingReservationRequired ? ', su prenotazione' : ''}.`,
     activityNote: 'Contattaci per conoscere disponibilità, condizioni ed eventuali costi delle attività.',
@@ -31,14 +33,16 @@ export const homepageCopy = {
     call: 'CHIAMA',
   },
   en: {
-    presentationTitle: 'The sea, just a few steps from your room',
+    presentationTitle: "Villa Maria Elena – The authentic charm of Capo Vaticano",
     presentation: [
-      'In Località Tono, Capo Vaticano, Villa Maria Elena Charme Rooms sul mare welcomes guests looking for a quieter pace in Calabria. With its beachfront setting and private beach, there is time to enjoy the sea, sit in the garden and settle into your stay.',
-      `Tono Beach is around ${n(distances.beachMetres, 'en')} metres away, making the sea part of everyday life here. When you feel like exploring, Tropea is approximately ${n(distances.tropeaKm, 'en')} km away.`,
-    ],
+      "In the heart of Capo Vaticano, just a few steps from the crystal-clear waters of Tono Beach, Villa Maria Elena is a peaceful retreat where history, nature and comfort come together.",
+      "An old residence with a rich history, thoughtfully restored with respect for its origins, now welcomes guests in just five rooms. Stone walls, exposed beams and natural materials blend with a simple, contemporary elegance.",
+      "Surrounded by a carefully tended garden, the villa offers an intimate, relaxing atmosphere for an unhurried holiday. Private access leads directly to the beach, less than a minute away on foot, with pale sand, turquoise water and memorable sunsets over Stromboli.",
+      "Villa Maria Elena offers more than a stay: it is an experience of authentic Mediterranean hospitality, where every detail tells a story and every moment invites you to feel at home."
+],
     roomsIntro: 'Three room types, each with a private bathroom, air conditioning and Wi-Fi. Choose the space that suits your stay, from a room with a patio to one with a seating area.',
     roomMeta: (room: Room) => `Approx. ${room.areaM2} m² · up to ${room.maxGuests} guests`,
-    servicesIntro: 'From the private beach to an Italian breakfast, thoughtful essentials for an easy stay.',
+    servicesIntro: 'From private access to the beach to an Italian breakfast, thoughtful essentials for an easy stay.',
     serviceTitles: { sea: 'By the sea', comfort: 'Space and comfort', care: 'Everyday care', arrival: 'Getting here and around', accessibility: 'Accessibility', activities: 'Sea and nature' },
     parking: `Private on-site parking is available for ${parking('en')} per day${stay.parkingReservationRequired ? ' and must be reserved' : ''}.`,
     activityNote: 'Please contact us for activity availability, conditions and any additional charges.',
@@ -56,14 +60,16 @@ export const homepageCopy = {
     call: 'CALL',
   },
   de: {
-    presentationTitle: 'Das Meer, nur wenige Schritte vom Zimmer entfernt',
+    presentationTitle: "Villa Maria Elena – Der authentische Charme von Capo Vaticano",
     presentation: [
-      'In Località Tono, Capo Vaticano, empfängt Sie die Villa Maria Elena Charme Rooms sul mare zu einer ruhigen Auszeit in Kalabrien. Die Lage direkt am Strand und der Privatstrand bieten Raum für Tage am Meer, eine Pause im Garten und Zeit für sich.',
-      `Tono Beach liegt etwa ${n(distances.beachMetres, 'de')} Meter entfernt. Das Meer gehört hier zum Alltag des Aufenthalts. Für einen Ausflug bietet sich Tropea an, rund ${n(distances.tropeaKm, 'de')} km von der Unterkunft entfernt.`,
-    ],
+      "Im Herzen von Capo Vaticano, nur wenige Schritte vom kristallklaren Wasser des Strandes Tono entfernt, liegt die Villa Maria Elena: ein kleiner Ort der Ruhe, an dem Geschichte, Natur und Komfort zusammenfinden.",
+      "Das geschichtsträchtige Haus wurde behutsam und mit Respekt vor seinen Ursprüngen aufgewertet und empfängt seine Gäste heute in nur fünf Zimmern. Steinwände, sichtbare Holzbalken und natürliche Materialien verbinden sich mit schlichter, zeitgemäßer Eleganz.",
+      "Inmitten eines gepflegten Gartens bietet die Villa eine persönliche, entspannte Atmosphäre für einen Urlaub ohne Eile. Ein privater Zugang führt direkt zum Strand, der in weniger als einer Minute zu Fuß erreichbar ist: heller Sand, türkisfarbenes Meer und eindrucksvolle Sonnenuntergänge über Stromboli.",
+      "Die Villa Maria Elena ist mehr als ein Aufenthalt: Sie erleben authentische mediterrane Gastfreundschaft, bei der jedes Detail eine Geschichte erzählt und jeder Moment dazu einlädt, sich zu Hause zu fühlen."
+],
     roomsIntro: 'Drei Zimmertypen, jeweils mit eigenem Bad, Klimaanlage und WLAN. Wählen Sie die passenden Räume für Ihren Aufenthalt, vom Zimmer mit Patio bis zur Unterkunft mit Sitzbereich.',
     roomMeta: (room: Room) => `Ca. ${room.areaM2} m² · bis zu ${room.maxGuests} Gäste`,
-    servicesIntro: 'Vom Privatstrand bis zum italienischen Frühstück: praktische Annehmlichkeiten für einen entspannten Aufenthalt.',
+    servicesIntro: 'Vom privaten Strandzugang bis zum italienischen Frühstück: praktische Annehmlichkeiten für einen entspannten Aufenthalt.',
     serviceTitles: { sea: 'Am Meer', comfort: 'Raum und Komfort', care: 'Für jeden Tag', arrival: 'Anreise und Mobilität', accessibility: 'Barrierefreiheit', activities: 'Meer und Natur' },
     parking: `Private Parkplätze an der Unterkunft stehen für ${parking('de')} pro Tag zur Verfügung${stay.parkingReservationRequired ? ' und müssen reserviert werden' : ''}.`,
     activityNote: 'Bitte fragen Sie uns nach Verfügbarkeit, Bedingungen und möglichen Zusatzkosten der Aktivitäten.',

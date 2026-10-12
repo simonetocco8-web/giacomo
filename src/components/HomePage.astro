@@ -2,8 +2,9 @@
 import MainLayout from '../layouts/MainLayout.astro';
 import ResponsiveImage from './ResponsiveImage.astro';
 import { homepageImages } from '../data/images';
-import { content, site, ui, type Locale } from '../data/site';
+import { content, site, ui, galleryPath, type Locale } from '../data/site';
 import { rooms, serviceGroups, amenityLabel } from '../data/hospitality';
+import { galleryContent } from '../data/gallery';
 import { homepageCopy } from '../data/homepage-copy';
 interface Props { locale: Locale }
 const { locale } = Astro.props;
@@ -66,6 +67,7 @@ const [firstName, ...remainingName] = site.shortName.split(' ');
     <div class="shell">
       <p class="eyebrow">{site.name}</p><h2 id="gallery-title">{t.sections[3]}</h2>
       <p class="section-copy">{c.galleryIntro}</p>
+      <p><a class="text-link" href={galleryPath(locale)}>{galleryContent[locale].viewAll} ↗</a></p>
       <div class="gallery-grid">{images.gallery.map(image => <ResponsiveImage {...image} />)}</div>
     </div>
   </section>

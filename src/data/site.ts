@@ -21,6 +21,7 @@ export const site = {
 export const locales = ['it', 'en', 'de'] as const;
 export type Locale = typeof locales[number];
 export const localePath = (locale: Locale): string => locale === 'it' ? '/' : `/${locale}/`;
+export const galleryPath = (locale: Locale): string => `${localePath(locale)}gallery/`;
 export const languageNames: Record<Locale, string> = { it: 'Italiano', en: 'English', de: 'Deutsch' };
 
 export const content = {

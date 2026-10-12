@@ -10,7 +10,7 @@ export const stay = {
 };
 const labels = {
   beachfront: ['Struttura fronte mare', 'Beachfront property', 'Unterkunft direkt am Meer'],
-  privateBeach: ['Spiaggia privata', 'Private beach', 'Privatstrand'],
+  privateBeachAccess: ['Accesso Privato a Spiaggia', 'Private access to the beach', 'Privater Zugang zum Strand'],
   freeWifi: ['Wi-Fi gratuito', 'Free Wi-Fi', 'Kostenloses WLAN'],
   wifi: ['Wi-Fi', 'Wi-Fi', 'WLAN'],
   airConditioning: ['Aria condizionata', 'Air conditioning', 'Klimaanlage'],
@@ -49,7 +49,7 @@ export const rooms: Room[] = [
 ];
 export type ServiceGroupId = 'sea' | 'comfort' | 'care' | 'arrival' | 'accessibility' | 'activities';
 export const serviceGroups: { id: ServiceGroupId; amenities: Amenity[] }[] = [
-  { id: 'sea', amenities: ['beachfront', 'privateBeach', 'sunLoungersParasols'] },
+  { id: 'sea', amenities: ['beachfront', 'privateBeachAccess', 'sunLoungersParasols'] },
   { id: 'comfort', amenities: ['freeWifi', 'airConditioning', 'garden', 'outdoorFurniture'] },
   { id: 'care', amenities: ['italianBreakfast', 'dailyCleaning', 'luggageStorage', 'privateCheckinCheckout'] },
   { id: 'arrival', amenities: ['privateParking', 'airportShuttlePaid'] },
