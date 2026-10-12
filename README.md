@@ -124,4 +124,13 @@ Selezione completa e nuove anteprime: `docs/reviews/photography.md`.
 
 Il nome commerciale è `VILLA MARIA ELENA Charme Rooms sul mare`. Header e titolo hero mantengono la forma breve `Villa Maria Elena` per conservare la grafica; il nome completo è disponibile nel footer e nei metadati Open Graph. Telefono `+39 388 118 3254` (`tel:+393881183254`), WhatsApp e indirizzo `Località Tono, Capo Vaticano, 89866, Calabria, Italia` sono centralizzati in `src/data/site.ts`. Email, CIN e CIR non sono stati forniti e non vengono mostrati.
 
-Il proprietario ha confermato posizione fronte mare, spiaggia privata, distanze, camere, servizi e condizioni di soggiorno. I testi nelle tre lingue usano esclusivamente questi dati. I nomi delle tre camere sono mantenuti come su Booking in tutte le lingue. Le due fotografie delle camere sono presentate come vedute generali, senza attribuirle a categorie non confermate.
+Il proprietario ha confermato posizione fronte mare, accesso privato alla spiaggia, distanze, camere, servizi e condizioni di soggiorno. I testi nelle tre lingue usano esclusivamente questi dati. I nomi delle tre camere sono mantenuti come su Booking in tutte le lingue. Le due fotografie delle camere sono presentate come vedute generali, senza attribuirle a categorie non confermate.
+
+
+### Gallery separata e descrizione aggiornata
+
+La presentazione italiana usa il testo completo fornito dal proprietario, con traduzioni inglese e tedesca. La dicitura del servizio è `Accesso Privato a Spiaggia`, senza attribuire proprietà privata alla spiaggia.
+
+La gallery si trova su `/gallery/`, `/en/gallery/` e `/de/gallery/` ed è collegata al menu e alla sezione fotografica della homepage. Le traduzioni e gli alternate SEO restano sulla stessa pagina quando si cambia lingua. Le immagini seguono i 28 nomi `gallery_0900.jpg` … `gallery_1035.jpg` (incremento 5), riferiti alla cartella già caricata nell'hosting `/galleria/`. I nomi sono centralizzati in `src/data/gallery.ts`.
+
+**Upload FTP/cPanel:** estrarre lo ZIP nella document root conservando la cartella `galleria` con le foto già caricate. Lo ZIP contiene le pagine gallery ma non copie delle nuove fotografie: le richieste al dominio pubblico hanno restituito 404 per tutti i 28 percorsi. Per vedere le foto, questi URL devono essere disponibili nella document root, oppure va aggiornato il percorso nel modulo dati. Non sono state create fotografie o metadati descrittivi inventati. I thumbnail riservano spazio con aspect-ratio, usano lazy loading e aprono il file originale; non è stato possibile ottimizzare o verificare visivamente foto non scaricabili.
